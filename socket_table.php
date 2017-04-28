@@ -11,7 +11,9 @@ $server->on('open', function (swoole_websocket_server $server, $request) {
     //$token = $request->get['token'];echo $token;
     echo "\nconnection open: " . $request->fd . "\n";
     if($request->header['upgrade'] == 'websocket'){//只存储websocket-client
-        $server->table->set($request->fd, array('fd' => $request->fd));//获取客户端id插入table 
+        if(!$server->table->exist($request->fd)){
+            $server->table->set($request->fd, array('fd' => $request->fd));//获取客户端id插入table
+        }
     }
 });
 
