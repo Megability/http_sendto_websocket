@@ -1,7 +1,7 @@
 <?php
 $post_data = array("msg"=>"msg: ".$_GET['msg']);
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://ip:port/socket.php');
+curl_setopt($ch, CURLOPT_URL, 'http://ip:port/socket_redis.php');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
